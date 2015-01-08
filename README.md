@@ -7,11 +7,11 @@ To deploy this plugin, you should copy ./modify_custom_fields into plugins folde
 
 This plugin optimizes the management page of custom fields. 
 
-1. Add a tracker filter for custom fields.
+#####1. Add a tracker filter for custom fields.
 
 ![image](https://github.com/nmgfrank/redminePlugin_modifyCustomFields/blob/master/readme_pic/custom_field.jpg)
 
-2. Attach info of the applicant and applying reason to each custom field.
+#####2. Attach info of the applicant and applying reason to each custom field.
 
 ![image](https://github.com/nmgfrank/redminePlugin_modifyCustomFields/blob/master/readme_pic/intro.jpg)
 
