@@ -1,0 +1,5 @@
+# English strings go here for Rails i18n
+zh:
+  # my_label: "My label"
+  modify_custom_fields_proposer: "申请人"
+  modify_custom_fields_comment: "注释"

@@ -1,0 +1,48 @@
+<h2><%= link_to l(:label_custom_field_plural), :controller => 'custom_fields', :action => 'index' %>
+  &#187; <%= link_to l(@custom_field.type_name), :controller => 'custom_fields', :action => 'index', :tab => @custom_field.class.name %>
+  &#187; <%=h @custom_field.name %></h2>
+
+<%= labelled_form_for :custom_field, @custom_field, :url => "/custom_fields/#{@custom_field.id}/modify_update", :html => {:method => :put, :id => 'custom_field_form'} do |f| %>
+
+<%= render :partial => 'form', :locals => { :f => f } %>
+
+<div class="box tabular">
+    <table style="width: 100%;">
+        <tr>
+            <td><%= l(:modify_custom_fields_proposer) %></td>
+            <td>
+                <select id="proposer_id" name="extension[proposer_id]"  value="<%= @extension_info.blank? ? "" : @extension_info.attributes['proposer_id'] %>">
+                    <%  if @extension_info.blank?  %>
+                            <option value=""></option>
+                    <% end %>
+                    <% @users.each do |u| %>
+                        <option value="<%= u.id %>"
+                        
+                        <%  if (@extension_info.blank? ? "" : @extension_info.proposer_id.to_s) == u.id.to_s %>
+                            selected="selected"
+                        <% end %>
+                        
+                        >
+                            <%= u.lastname %><%= u.firstname %>
+                        </option>
+                    <% end %>
+                </select>
+                <a href="/modify_custom_fields/proposer_new" data-method="get" data-remote="true">Search</a>
+            </td>
+        </tr>
+        <tr>
+            <td><%= l(:modify_custom_fields_comment) %></td>
+            <td><textarea name="extension[comment]" style="width: 80%; height: 120px;"><%= @extension_info.blank? ? "" : @extension_info.attributes['comment'] %></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input name="extension[custom_field_id]" type="hidden" value="<%=  @custom_field.id %>"></td>
+        </tr>        
+    </table>
+    <input name="tracker_id" type="hidden" value="<%=  params["tracker_id"] %>">
+</div>
+
+<%= submit_tag l(:button_save) %>
+<% end %>
+
+

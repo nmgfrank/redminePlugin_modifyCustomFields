@@ -1,0 +1,6 @@
+<% if !@proposer_id.nil? %>
+    user_id_str = '<%= @proposer_id %>';
+    user_id = parseInt(user_id_str);
+
+    $("#proposer_id").val(user_id_str);
+<% end %>

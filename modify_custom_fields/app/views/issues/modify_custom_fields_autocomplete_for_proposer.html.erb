@@ -1,0 +1,6 @@
+<%  @users.each do |user| %>
+    <label style='display:block;'>
+        <input name='proposer_id' class='proposer_id_radio' value='<%= user.id %>' type='radio' /> <%= user.name %>
+    </label>
+<% end %>
+
